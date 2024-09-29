@@ -20,6 +20,9 @@ importers:
       '@astrojs/vercel':
         specifier: ^3.5.0
         version: 3.5.0(astro@2.7.0(@types/node@20.6.2)(terser@5.19.4))(react@18.2.0)
+      '@fuyun/generative-ai':
+        specifier: ^0.16.0
+        version: 0.16.0
       '@google/generative-ai':
         specifier: ^0.20.0
         version: 0.20.0
@@ -1055,6 +1058,10 @@ packages:
     resolution: {integrity: sha512-pWXK26Eo/e1eUO9qpEAkODOr1uKwWbOKk6EteE8ZptUTjFhsn/qt7QggbaurTeWGQDNiFnYVQu/EITRFHw8rsg==}
     peerDependencies:
       eslint: ^8.0.0
+
+  '@fuyun/generative-ai@0.16.0':
+    resolution: {integrity: sha512-+ez0G6g0SUmNjLqb+/B25NWP9w4N+kDePhu4sPxCgmH9a4j+GH3FlWxEwdbMmeSeIUzZZ+bqFTUJ550BEBjg5A==}
+    engines: {node: '>=18.0.0'}
 
   '@google/generative-ai@0.20.0':
     resolution: {integrity: sha512-uJQNDr1sihvBJ9w8B0ESpNdX9aEueAMXgwnTuhTo+LnI7DD0M1KHnOWzxb2l6cM1rRHzvkdgJNNfeybcqg7uVg==}
@@ -5569,6 +5576,8 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
       - typescript
+
+  '@fuyun/generative-ai@0.16.0': {}
 
   '@google/generative-ai@0.20.0': {}
 
