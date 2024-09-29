@@ -1,4 +1,4 @@
-import { GoogleGenerativeAI } from '@google/generative-ai'
+import { GoogleGenerativeAI } from '@fuyun/generative-ai'
 
 const apiKey = (import.meta.env.GEMINI_API_KEY)
 const apiBaseUrl = (import.meta.env.API_BASE_URL)?.trim().replace(/\/$/, '')
@@ -8,7 +8,7 @@ const genAI = apiBaseUrl
   : new GoogleGenerativeAI(apiKey)
 
 export const startChatAndSendMessageStream = async(history: ChatMessage[], newMessage: string) => {
-  const model = genAI.getGenerativeModel({ model: 'gemini-1.5-pro' })
+  const model = genAI.getGenerativeModel({ model: 'gemini-pro' })
 
   const chat = model.startChat({
     history: [
@@ -24,18 +24,13 @@ export const startChatAndSendMessageStream = async(history: ChatMessage[], newMe
       })),
     ],
     generationConfig: {
-      maxOutputTokens: 2000000,
+      maxOutputTokens: 8000,
     },
     safetySettings: [
       { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_NONE' },
       { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_NONE' },
       { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_NONE' },
       { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_NONE' },
-    ],
-    tools: [
-      {
-        codeExecution: {},
-      },
     ],
   })
 
