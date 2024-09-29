@@ -3,7 +3,7 @@
 
 A demo repo rebuild [ChatGPT - DEMO.](https://github.com/ddiu8081/chatgpt-demo)
 
-**🍿 Live preview**: https://demo.vietlinhh02.works
+**🍿 Live preview**: https://gemini-api-vietlinhh02s-projects.vercel.app
 
 > ⚠️ Notice: The app is for learning purposes only. It is not to be used for commercial purposes.
 
