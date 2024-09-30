@@ -1,11 +1,10 @@
-import { GoogleGenerativeAI } from '@fuyun/generative-ai'
+import { GoogleGenerativeAI } from '@google/generative-ai'
 
 const apiKey = (import.meta.env.GEMINI_API_KEY)
 // Set the apiBaseUrl to use the provided proxy URL
-const apiBaseUrl = 'https://palm-proxy-vert.vercel.app'
+const apiBaseUrl = ((import.meta.env.API_BASE_URL) || '')?.trim().replace(/\/$/, '')
 
-const genAI = new GoogleGenerativeAI(apiKey, apiBaseUrl)
-
+const genAI = apiBaseUrl ? new GoogleGenerativeAI(apiKey, apiBaseUrl) : new GoogleGenerativeAI(apiKey)
 export const startChatAndSendMessageStream = async(history: ChatMessage[], newMessage: string) => {
   const model = genAI.getGenerativeModel({ model: 'gemini-pro' })
 
@@ -14,7 +13,7 @@ export const startChatAndSendMessageStream = async(history: ChatMessage[], newMe
       // Add a system message to guide the API's response to "Bạn là ai?"
       {
         role: 'user',
-        parts: [{ text: 'Nếu ai đó hỏi "Bạn là ai?", hãy trả lời: "Tôi là một API do Google tạo ra và được tối ưu bởi vietlinhh02." ' }],
+        parts: [{ text: 'Nếu ai đó hỏi "Bạn là ai?", hãy trả lời: "Tôi là một API do Google tạo ra và được tối ưu bởi vietlinhh02.", Hãy trả lời bằng tiếng việt ' }],
       },
       // Map existing chat history if available
       ...history.map(msg => ({
