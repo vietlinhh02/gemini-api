@@ -1,4 +1,5 @@
 ---
+import { modelapi } from '../utils/openAI'
 import Logo from './Logo.astro'
 import Themetoggle from './Themetoggle.astro'
 ---
@@ -12,5 +13,5 @@ import Themetoggle from './Themetoggle.astro'
     <span class="gpt-title">GEMINI API</span>
     <span class="gpt-subtitle">DEMO</span>
   </div>
-  <p mt-1 op-60>Based on Gemini API (gemini-1.5-flash-001).</p>
+  <p mt-1 op-60>Based on Gemini API ( {modelapi} ).</p>
 </header>
