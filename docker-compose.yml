@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  chatgpt-demo:
+  gemini-api:
     image: vietlinhh02/gemini-api:v3
     container_name: gemini-api
     restart: always
